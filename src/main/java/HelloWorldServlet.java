@@ -11,6 +11,7 @@ public class HelloWorldServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     final String message = "Hello World";
+    final String textHtml = "text/html";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -20,7 +21,7 @@ public class HelloWorldServlet extends HttpServlet {
 
 
         if (fname == null || fname.isEmpty()) {
-            response.setContentType("text/html");
+            response.setContentType(textHtml);
             response.getWriter().println("<h1>" + message + "</h1>");
         } else {
             switch (fname) {
@@ -31,7 +32,7 @@ public class HelloWorldServlet extends HttpServlet {
                     requestDispatcher("david", request, response);
                     break;
                 default:
-                    response.setContentType("text/html");
+                    response.setContentType(textHtml);
                     response.getWriter().println("<h1>Hello " + fname + "</h1>");
 
             }
